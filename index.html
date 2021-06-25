@@ -137,6 +137,16 @@
                 "*"
             );
         }
+      
+      function steamgame() {
+            window.parent.postMessage(
+                JSON.stringify({
+                    event_code: "ym-client-event",
+                    data: "How to Redeem Steam game Codes"
+                }),
+                "*"
+            );
+        }
 
         function pubg() {
             console.log("How to Redeem PUBG Mobile Vouchers")
@@ -167,7 +177,7 @@
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "okcupid"
+                    data: "How To Redeem OK Cupid Voucher Code"
                 }),
                 "*"
             );
@@ -179,7 +189,7 @@
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "Blizzard"
+                    data: "How To Redeem Blizzard Balance Voucher Code"
                 }),
                 "*"
             );
@@ -191,7 +201,7 @@
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "Blizzard"
+                    data: "How To Redeem Netflix Voucher Code"
                 }),
                 "*"
             );
@@ -203,7 +213,7 @@
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "Xbox Gift Card"
+                    data: "How to Redeem Xbox Gift Card Voucher Codes"
                 }),
                 "*"
             );
@@ -214,7 +224,7 @@
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "rockstar"
+                    data: "How To Redeem Rockstar Activation Code"
                 }),
                 "*"
             );
@@ -277,10 +287,15 @@
         <img src="https://cdn.yellowmessenger.com/mpTP2ocVvY291621256326863.png" alt="Place Holder"/>
         Tinder
     </button>
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="steamwallet()" >
+  <button type="button" class="right primary-btn col-xs-11 text-left" onclick="steamwallet()" >
         <img src="https://cdn.yellowmessenger.com/ebAbcs9HBMzC1621257918055.png" alt="Place Holder"/>
         Steam Wallet
+
+    </button> 
+
+    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="steamgame()" >
+        <img src="https://cdn.yellowmessenger.com/ebAbcs9HBMzC1621257918055.png" alt="Place Holder"/>
+        Steam game
 
     </button> 
 
