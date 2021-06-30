@@ -1,57 +1,53 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-
 <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"
         integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
-    
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+
+
+
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'lato';
         }
-
         h5 {
             margin: 20px 0px 20px 0px;
-            font-family: 'Lato';
-                          font-weight: bold;
+                            font-family: 'lato';
 
         }
-
         img {
             vertical-align: middle;
-            max-width: 30px;
-            width: 20px;
+            max-width: 30%;
+            width: 30%;
             max-height: 100%;
             margin: 0%;
             padding-right: 2px;
+            float: left;
         }
-
-        
-        
-        .image:hover {
- 
-  box-shadow: 50px blue;
-  transform: translateY(4px);
-  
-}
         button {
             padding: 2px;
             margin: 0.5% 1% 0% 1%;
             width: 48%;
             max-width: 48%;
             height: 50px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             border-radius: 10px;
             border: 2px solid steelblue;
             -webkit-border-radius: 10px;
             background-color: white;
-            font-family: 'Lato';
+              font-family: 'lato';
+
         }
         button:hover {
             -webkit-box-shadow: 100px 600px 500px #ccc;
@@ -66,23 +62,81 @@
         .right {
             float: right;
         }
-        button {
-            padding: 5px;
+        .vertical-center {
+            vertical-align: middle;
         }
+.image:hover {
+ 
+  box-shadow: 50px blue;
+  transform: translateY(4px);
+  
+}
+
+
+
+        
     </style>
 </head>
 <body>
-    
-    <script type="text/javascript" >
+    <script type="text/javascript">
         
-        window.addEventListener('load', (event) => {
+        
+         window.addEventListener('load', (event) => {
+
+                      void function $getLines($) {
+                function countLines($element) {
+                    var lines = 0;
+                    var greatestOffset = void 0;
+                    $element.find('character').each(function () {
+                        if (!greatestOffset || this.offsetTop > greatestOffset) {
+                            greatestOffset = this.offsetTop;
+                            ++lines;
+                        }
+                    });
+                    return lines;
+                }
+                $.fn.getLines = function $getLines() {
+                    var lines = 0;
+                    var clean = this;
+                    var dirty = this.clone();
+                    (function wrapCharacters(fragment) {
+                        var parent = fragment;
+                        $(fragment).contents().each(function () {
+                            if (this.nodeType === Node.ELEMENT_NODE) {
+                                wrapCharacters(this);
+                            }
+                            else if (this.nodeType === Node.TEXT_NODE) {
+                                void function replaceNode(text) {
+                                    var characters = document.createDocumentFragment();
+                                    text.nodeValue.replace(/[\s\S]/gm, function wrapCharacter(character) {
+                                        characters.appendChild($('<character>' + character + '</>')[0]);
+                                    });
+                                    parent.replaceChild(characters, text);
+                                }(this);
+                            }
+                        });
+                    }(dirty[0]));
+                    clean.replaceWith(dirty);
+                    lines = countLines(dirty);
+                    dirty.replaceWith(clean);
+                    return lines;
+                };
+            }(jQuery);
+            $('span').each(function () {
+                console.log($(this).getLines());
+                if($(this).getLines() == 1){
+                    // var parentTag = $( this ).parent().get( 0 ).tagName;
+                    // console.log(parentTag)
+                    $( this ).prev().css( "float", "none" )
+                }
+            })
+
+
+                     
             
             const { title } = Qs.parse(location.search, { ignoreQueryPrefix: true })
         document.getElementById("heading").innerHTML = title 
     })
-        
-       
-        
         function back() {
             window.parent.postMessage(
                 JSON.stringify({
@@ -93,67 +147,74 @@
             );
         }
 
-        function call() {
+        function gcash() {
             console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "Redeem Garena Shell Vouchers Call of Duty"
+                    data: "How To Make A Payment With GCash"
                 }),
                 "*"
             );
 
         }
 
-        function legends() {
-            console.log("Redeem Mobile Legends Item Codes")
+
+        function smart() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "Redeem Mobile Legends Item Codes"
+                    data: "How To Make A Payment With Smart"
                 }),
                 "*"
             );
 
         }
 
-        function tinder() {
-            console.log("Cara Redeem Kode Voucher Tinder")
+        function globe() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How to Redeem Tinder Voucher Codes"
+                    data: "How To Make A Payment With Globe"
                 }),
                 "*"
             );
+
         }
 
-            function steamwallet() {
+         function banktransfer() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How to Redeem Steam Wallet Voucher Codes"
+                    data: "How To Make A Payment With Unionbank"
                 }),
                 "*"
             );
+
         }
-      
-      function steamgame() {
+
+        function Paymaya() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How to Redeem Steam game Codes"
+                    data: "How To Make A Payment With Paymaya"
                 }),
                 "*"
             );
+
         }
 
-        function pubg() {
-            console.log("How to Redeem PUBG Mobile Vouchers")
+
+        function eleven() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How to Redeem PUBG Mobile Vouchers"
+                    data: "How To Make A Payment With 7 Eleven"
                 }),
                 "*"
             );
@@ -161,197 +222,79 @@
         }
 
 
-        function nintendo() {
-            console.log("I want to redeem Nintendo eShop Card")
+        function bayad() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How to Redeem Nintendo eShop Card Codes"
+                    data: "How To Make A Payment With Bayad Center"
                 }),
                 "*"
             );
+
         }
 
-        function ok() {
-            console.log("World of Warships Voucher Codes")
+        function coins() {
+            console.log("Redeem Garena Shell Vouchers Call of Duty")
             window.parent.postMessage(
                 JSON.stringify({
                     event_code: "ym-client-event",
-                    data: "How To Redeem OK Cupid Voucher Code"
+                    data: "How To Make A Payment With Coins ph"
                 }),
                 "*"
             );
 
         }
 
-        function Blizzard() {
-            console.log("World of Warships Voucher Codes")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "How To Redeem Blizzard Balance Voucher Code"
-                }),
-                "*"
-            );
-
-        }
-
-        function netflix() {
-            console.log("World of Warships Voucher Codes")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "How To Redeem Netflix Voucher Code"
-                }),
-                "*"
-            );
-
-        }
-
-        function xbox() {
-            console.log("Xbox Gift Card")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "How to Redeem Xbox Gift Card Voucher Codes"
-                }),
-                "*"
-            );
-        }
-
-       function rockstar() {
-            console.log("Rockstar voucher code")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "How To Redeem Rockstar Activation Code"
-                }),
-                "*"
-            );
-        }
-
-        function epic() {
-            console.log("i want to redeem Epic Games voucher code")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "i want to redeem Epic Games voucher code"
-                }),
-                "*"
-            );
-        }
-        
-     function mine() {
-            console.log("Minecraft voucher code")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "Minecraft voucher code"
-                }),
-                "*"
-            );
-
-        }
-
-        function blackdessert() {
-            console.log("Black Desert SEA Voucher")
-            window.parent.postMessage(
-                JSON.stringify({
-                    event_code: "ym-client-event",
-                    data: "Black Desert SEA Voucher"
-                }),
-                "*"
-            );
-
-        }
-
-         
     </script>
     <div class = "image">
     <img src="https://cdn.yellowmessenger.com/KseiGAPc8y401621566579976.jpeg" alt="" style="float: right;width:25px;height:25px;max-width: 40px;max-height: 40px;margin-right: 4px;" onclick="back()">
     </div>
-    </br>
-   <b> <h5 id = "heading" >Please choose the voucher redemption tutorial below </h5></b>
+        </br>
+        
+      <h5 id = "heading" style ="font-weight:bold" > Please choose the User ID Guide below.  </h5>
 
-<button type="button" class="right primary-btn col-xs-11 text-left" onclick="call()" >
-        <img src="https://cdn.yellowmessenger.com/JHGnMiKevRfQ1621264012663.png" alt="Place Holder"/>
-        Call of Duty
+
+
+    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="gcash()" >
+        <img src="https://cdn.yellowmessenger.com/DH7Vk5X0hci61624854198110.jpg" alt="Place Holder"/>
+        
     </button>
 
-<button type="button" class="right primary-btn col-xs-11 text-left"  onclick="legends()" >
-        <img src="https://cdn.yellowmessenger.com/FuXxevambEXI1621263064445.png" alt="Place Holder"/>
-        Mobile Legends
+<button type="button" class="right primary-btn col-xs-11 text-left"  onclick="smart()" >
+        <img src="https://cdn.yellowmessenger.com/bBWC3icH7pAN1624854363186.jpg" alt="Place Holder"/>
+        
     </button>
 
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="tinder()" >
-        <img src="https://cdn.yellowmessenger.com/mpTP2ocVvY291621256326863.png" alt="Place Holder"/>
-        Tinder
-    </button>
-  <button type="button" class="right primary-btn col-xs-11 text-left" onclick="steamwallet()" >
-        <img src="https://cdn.yellowmessenger.com/ebAbcs9HBMzC1621257918055.png" alt="Place Holder"/>
-        Steam Wallet
-
-    </button> 
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="steamgame()" >
-        <img src="https://cdn.yellowmessenger.com/ebAbcs9HBMzC1621257918055.png" alt="Place Holder"/>
-        Steam game
-
-    </button> 
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="pubg()" >
-        <img src="https://cdn.yellowmessenger.com/MR6Smc9Z0JQi1621259882872.png" alt="Place Holder"/>
-        PUBG UC 
+    <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="globe()" >
+        <img src="https://cdn.yellowmessenger.com/bBWC3icH7pAN1624854363186.jpg" alt="Place Holder"/>
+        
     </button>
 
 
- <button type="button" class="right primary-btn col-xs-11 text-left" onclick="pubg()" >
-        <img src="https://cdn.yellowmessenger.com/sPKgz5IcmjmE1624521802327.png" alt="Place Holder"/>
-        Netflix
+    <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="banktransfer()" >
+        <img src="https://cdn.yellowmessenger.com/1mstXpv2RV6O1624854684045.jpg" alt="Place Holder"/>
     </button>
 
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="nintendo()" >
-        <img src="https://cdn.yellowmessenger.com/xQzOYnHq1gwg1621258467333.png" alt="Place Holder"/>
-        Nintendo eShop
+    <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="Paymaya()" >
+        <img src="https://cdn.yellowmessenger.com/ZNJj52HZwfB11624854861314.jpg" alt="Place Holder"/>
+        
     </button>
 
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="ok()" >
-        <img src="https://cdn.yellowmessenger.com/OTscjSRhJHAN1621432257647.png" alt="Place Holder"/>
-        OK Cupid
+     <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="eleven()" >
+        <img src="https://cdn.yellowmessenger.com/i3mMwLGJ5fD51624855235280.png" alt="Place Holder"/>
+        7-Eleven
     </button>
 
-     <button type="button" class="right primary-btn col-xs-11 text-left" onclick="Blizzard()" >
-        <img src="https://cdn.yellowmessenger.com/jp9INbAanwud1624512972062.jpg" alt="Place Holder"/>
-      Blizzard Balance
-    </button>
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="xbox()" >
-        <img src="https://cdn.yellowmessenger.com/gzQzUptDw2tC1621255146766.png" alt="Place Holder"/>
-        Xbox Gift Card
-    </button>
-
-
-<button type="button" class="right primary-btn col-xs-11 text-left" onclick="rockstar()" >
-        <img src="https://cdn.yellowmessenger.com/QFuuzaZ68dxu1621255018403.png" alt="Place Holder"/>
-        Rockstar
-    </button>
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="epic()" >
-        <img src="https://cdn.yellowmessenger.com/SUhoLDbKGEYi1621257444482.png" alt="Place Holder"/>
-        Epic Games
-    </button>
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="mine()" >
-        <img src="https://cdn.yellowmessenger.com/aowTPkJRsFRC1621263922923.png" alt="Place Holder"/>
-        Minecraft
-    </button>
-
-    <button type="button" class="right primary-btn col-xs-11 text-left" onclick="blackdessert()" >
-        <img src="https://cdn.yellowmessenger.com/bEP1Bx02HK4c1621259361863.png" alt="Place Holder"/>
-        Black Desert SEA
-    </button>
-
-
+    <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="bayad()" >
+        <img src="https://cdn.yellowmessenger.com/yucQAxW0ktEu1624855731064.jpg" alt="Place Holder"/>
+     Bayad Center   
+      </button>
+   
+   <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="coins()" >
+        <img src="https://cdn.yellowmessenger.com/NcEdFs7NLGAt1624855772865.jpg" alt="Place Holder"/>
+       
+      </button>
  
 
     
