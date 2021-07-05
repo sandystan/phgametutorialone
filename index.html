@@ -10,48 +10,39 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   
     <style>
         body {
-            font-family: 'Lato';
+            font-family: 'lato';
         }
-
         h5 {
             margin: 20px 0px 20px 0px;
-            font-family: 'Lato';
-                          font-weight: bold;
+                            font-family: 'lato';
 
         }
-
         img {
             vertical-align: middle;
-            max-width: 30px;
-            width: 20px;
+            max-width: 30%;
+            width: 30%;
             max-height: 100%;
             margin: 0%;
             padding-right: 2px;
+            float: left;
         }
-
-
-
-        .image:hover {
-
-  box-shadow: 50px blue;
-  transform: translateY(4px);
-
-}
         button {
             padding: 2px;
             margin: 0.5% 1% 0% 1%;
             width: 48%;
             max-width: 48%;
             height: 50px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             border-radius: 10px;
             border: 2px solid steelblue;
             -webkit-border-radius: 10px;
             background-color: white;
-            font-family: 'Lato';
+              font-family: 'lato';
+
         }
         button:hover {
             -webkit-box-shadow: 100px 600px 500px #ccc;
@@ -66,9 +57,19 @@
         .right {
             float: right;
         }
-        button {
-            padding: 5px;
+        .vertical-center {
+            vertical-align: middle;
         }
+.image:hover {
+ 
+  box-shadow: 50px blue;
+  transform: translateY(4px);
+  
+}
+
+
+
+        
     </style>
 </head>
 <body>
@@ -263,10 +264,36 @@
     </br>
    <b> <h5 id = "heading" >Please choose the voucher redemption tutorial below </h5></b>
 
-<button type="button" class="right primary-btn col-xs-11 text-left" onclick="call()" >
-        <img src="https://cdn.yellowmessenger.com/JHGnMiKevRfQ1621264012663.png" alt="Place Holder"/>
-        Call of Duty
-    </button>
+
+
+
+
+
+
+    <button type="button" onclick="call()" class="right primary-btn col-xs-11 text-left">
+        <img src="https://cdn.yellowmessenger.com/JHGnMiKevRfQ1621264012663.png" alt="Place Holder" /><span> Call of Duty </span>
+       
+    </button> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <button type="button" class="right primary-btn col-xs-11 text-left"  onclick="legends()" >
         <img src="https://cdn.yellowmessenger.com/FuXxevambEXI1621263064445.png" alt="Place Holder"/>
